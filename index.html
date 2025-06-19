@@ -14,12 +14,12 @@
         /* 統一變數設定 */
         :root {
             --primary-red: #dc1c57;
-            --secondary-red: #b91c3c;
+            --secondary-red: #7c2d12;
             --light-red: #fef2f2;
             --accent-red: #f87171;
             --dark-red: #991b1b;
-            --orange: #f97316;
-            --light-orange: #fb923c;
+            --orange: #ea580c;
+            --light-orange: #fdba74;
             --text-gray: #374151;
             --light-gray: #f9fafb;
             --border-gray: #e5e7eb;
@@ -732,6 +732,8 @@
             display: flex;
             flex-direction: column;
             gap: var(--spacing-sm);
+            align-items: center;
+            text-align: center;
         }
 
         .donut-legend-item {
@@ -748,6 +750,7 @@
             display: flex;
             gap: 8px;
             margin-top: var(--spacing-md);
+            justify-content: center;
         }
 
         .toggle-btn {
@@ -1258,7 +1261,7 @@
     <section class="slide">
         <div class="container">
             <div class="slide-content">
-                <h2 data-translate="company_history">企業發展里程碑</h2>
+                <h2 data-translate="company_history">重要發展歷程</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-content brand-accent">
@@ -1296,7 +1299,7 @@
     <section class="slide">
         <div class="container">
             <div class="slide-content">
-                <h2 data-translate="org_structure">組織架構體系</h2>
+                <h2 data-translate="org_structure">威拓組織圖</h2>
                 <div class="content-card">
                     <div class="org-pyramid">
                         <!-- 第一層：董事長 -->
@@ -1364,7 +1367,7 @@
     <section class="slide">
         <div class="container">
             <div class="slide-content">
-                <h2 data-translate="product_analysis">產品營業佔比分析</h2>
+                <h2 data-translate="product_analysis">產品營業佔比</h2>
                 <div class="chart-layout">
                     <div>
                         <div class="pie-chart"></div>
@@ -1407,7 +1410,7 @@
     <section class="slide">
         <div class="container">
             <div class="slide-content">
-                <h2 data-translate="core_product_services">核心產品線專業服務</h2>
+                <h2 data-translate="core_product_services">主力產品線介紹</h2>
                 <div class="content-card brand-accent" style="margin-bottom: var(--spacing-lg);">
                     <h3 style="color: var(--primary-red); text-align: center; font-size: 2em;">🚀 <span data-translate="mold_service_title">發展主力：專業模具製造服務</span></h3>
                     <div style="text-align: center; margin-bottom: var(--spacing-md);">
@@ -1554,7 +1557,7 @@
     <section class="slide">
         <div class="container">
             <div class="slide-content">
-                <h2 data-translate="mold_process_mgmt">模具製造專業流程管理</h2>
+                <h2 data-translate="mold_process_mgmt">逆向模具製造流程</h2>
                 <div class="content-card brand-accent" style="margin-bottom: var(--spacing-lg);">
                     <h3 style="color: var(--primary-red); text-align: center;">🚀 <span data-translate="complete_mold_process">完整模具製造流程</span></h3>
                     <div class="process-horizontal">
@@ -1638,13 +1641,13 @@
     <section class="slide">
         <div class="container">
             <div class="slide-content">
-                <h2 data-translate="reverse_engineering_results">逆向工程模具生產實績</h2>
+                <h2 data-translate="reverse_engineering_results">模具生產實績</h2>
                 
                 <!-- 統計圖表區 -->
                 <div class="stats-charts-section">
                     <!-- 第一個圖表：正式量產前的試模次數統計 -->
                     <div class="chart-container">
-                        <h3 style="color: var(--primary-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="trial_count_stats">正式量產前的試模次數統計</h3>
+                        <h3 style="color: var(--primary-red); text-align: center; margin-bottom: 35px;" data-translate="trial_count_stats">正式量產前的試模次數統計</h3>
                         <div class="chart-wrapper">
                             <div class="bar-chart">
                                 <div class="chart-bars">
@@ -1716,7 +1719,7 @@
 
                     <!-- 第二個圖表：量產模具生產成功率比較（威拓 vs 舊廠商） -->
                     <div class="chart-container">
-                        <h3 style="color: var(--secondary-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="success_rate_comparison">量產模具生產成功率比較</h3>
+                        <h3 style="color: var(--primary-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="success_rate_comparison">量產模具生產成功率比較</h3>
                         <div class="comparison-chart">
                             <div class="comparison-row">
                                 <div class="comparison-label">威拓&lt;舊廠商</div>
@@ -1758,25 +1761,29 @@
 
                     <!-- 第三個圖表：量產模具生產成功率區間分析 -->
                     <div class="chart-container">
-                        <h3 style="color: var(--accent-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="success_rate_analysis">量產模具生產成功率區間分析</h3>
+                        <h3 style="color: var(--primary-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="success_rate_analysis">量產模具生產成功率區間分析</h3>
                         <div class="donut-chart-container">
                             <div class="donut-chart">
                                 <svg viewBox="0 0 200 200" class="donut-svg">
                                     <!-- 背景圓環 -->
                                     <circle cx="100" cy="100" r="70" fill="none" stroke="#f0f0f0" stroke-width="30"/>
-                                    <!-- Period 1 數據 -->
+                                    <!-- Period 1 數據：25% 和 75% -->
                                     <g class="period1-data">
+                                        <!-- ≤60%: 25% = 90度 -->
                                         <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary-red)" stroke-width="15"
-                                                stroke-dasharray="73.3 146.6" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                                                stroke-dasharray="109.96 329.87" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                                        <!-- ≥60%: 75% = 270度 -->
                                         <circle cx="100" cy="100" r="70" fill="none" stroke="var(--secondary-red)" stroke-width="15"
-                                                stroke-dasharray="146.6 73.3" stroke-dashoffset="-73.3" transform="rotate(-90 100 100)"/>
+                                                stroke-dasharray="329.87 109.96" stroke-dashoffset="-109.96" transform="rotate(-90 100 100)"/>
                                     </g>
-                                    <!-- Period 2 數據 -->
+                                    <!-- Period 2 數據：14.7% 和 85.3% -->
                                     <g class="period2-data" style="display: none;">
+                                        <!-- ≤60%: 14.7% = 52.9度 -->
                                         <circle cx="100" cy="100" r="70" fill="none" stroke="var(--orange)" stroke-width="15"
-                                                stroke-dasharray="51.5 168.1" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                                                stroke-dasharray="64.65 375.18" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                                        <!-- ≥60%: 85.3% = 307.1度 -->
                                         <circle cx="100" cy="100" r="70" fill="none" stroke="var(--light-orange)" stroke-width="15"
-                                                stroke-dasharray="168.1 51.5" stroke-dashoffset="-51.5" transform="rotate(-90 100 100)"/>
+                                                stroke-dasharray="375.18 64.65" stroke-dashoffset="-64.65" transform="rotate(-90 100 100)"/>
                                     </g>
                                     <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" class="donut-center-text">
                                         <tspan x="100" dy="-10" class="donut-period">25/05-25/11</tspan>
@@ -1816,7 +1823,7 @@
     <section class="slide">
         <div class="container">
             <div class="slide-content">
-                <h2 data-translate="development_vision">模具製造領域發展願景</h2>
+                <h2 data-translate="development_vision">威拓的發展願景</h2>
                 <div class="two-column">
                     <div class="content-card brand-accent">
                         <h3 data-translate="mold_strategy" style="text-align: center;">模具技術發展策略</h3>
@@ -1943,7 +1950,7 @@
         showSlide(0);
         showCarouselSlide(0);
 
-        // 圓環圖時期切換
+        // 圓環圖時期切換 - 修正版
         function togglePeriod(period) {
             const btns = document.querySelectorAll('.toggle-btn');
             const period1Data = document.querySelector('.period1-data');
@@ -1964,35 +1971,33 @@
             btns[period - 1].classList.add('active');
             
             if (period === 1) {
+                // Period 1: 25/05-25/11 (總計24個)
                 period1Data.style.display = 'block';
                 period2Data.style.display = 'none';
                 periodText.textContent = '25/05-25/11';
                 totalText.textContent = currentLanguage === 'zh' ? '總計: 24個' : '合計: 24個';
-                value1.textContent = '6';
-                value2.textContent = '18';
+                value1.textContent = '6';  // ≤60%: 6個
+                value2.textContent = '18'; // ≥60%: 18個
                 percent1.textContent = '25.0%';
                 percent2.textContent = '75.0%';
                 legendColor1.style.background = 'var(--primary-red)';
                 legendColor2.style.background = 'var(--secondary-red)';
-                periodBtn1.style.background = 'var(--primary-red)';
-                periodBtn1.style.color = 'white';
-                periodBtn2.style.background = 'white';
-                periodBtn2.style.color = 'var(--primary-red)';
+                periodBtn1.classList.add('active');
+                periodBtn2.classList.remove('active');
             } else {
+                // Period 2: 25/12-26/05 (總計34個)
                 period1Data.style.display = 'none';
                 period2Data.style.display = 'block';
                 periodText.textContent = '25/12-26/05';
                 totalText.textContent = currentLanguage === 'zh' ? '總計: 34個' : '合計: 34個';
-                value1.textContent = '5';
-                value2.textContent = '29';
+                value1.textContent = '5';  // ≤60%: 5個
+                value2.textContent = '29'; // ≥60%: 29個
                 percent1.textContent = '14.7%';
                 percent2.textContent = '85.3%';
                 legendColor1.style.background = 'var(--orange)';
                 legendColor2.style.background = 'var(--light-orange)';
-                periodBtn1.style.background = 'white';
-                periodBtn1.style.color = 'var(--primary-red)';
-                periodBtn2.style.background = 'var(--orange)';
-                periodBtn2.style.color = 'white';
+                periodBtn1.classList.remove('active');
+                periodBtn2.classList.add('active');
             }
         }
 
@@ -2029,7 +2034,7 @@
                 full_address: "815高雄市大社區旗楠路92之10號",
                 
                 // 公司沿革
-                company_history: "企業發展里程碑",
+                company_history: "重要發展歷程",
                 establishment: "創立奠基",
                 founding_date: "2024年5月",
                 founding_desc: "秉持「品質第一、誠信經營」理念創立，專注高品質五金製品及精密加工服務，建立穩固的技術基礎",
@@ -2041,7 +2046,7 @@
                 vision_desc: "深耕專業技術領域，擴大營運規模，朝向精密製造與智慧生產邁進，成為業界標竿，為客戶創造更高附加價值",
                 
                 // 組織架構
-                org_structure: "組織架構體系",
+                org_structure: "威拓組織圖",
                 current_employees: "現有員工：6人",
                 chairman: "董事長",
                 ceo: "總經理/執行長",
@@ -2063,7 +2068,7 @@
                 qa_responsible: "負責：淑芬、淵澤",
                 
                 // 產品佔比
-                product_analysis: "產品營業佔比分析",
+                product_analysis: "產品營業佔比",
                 hardware_components: "五金零件",
                 hardware_desc: "多樣化精密零件製造",
                 golf_heads: "高爾夫球頭",
@@ -2072,7 +2077,7 @@
                 mold_desc: "擠型模具專業製造",
                 
                 // 產品介紹
-                core_product_services: "核心產品線專業服務",
+                core_product_services: "主力產品線介紹",
                 mold_service_title: "發展主力：專業模具製造服務",
                 business_growth: "2024/05 營業占比 0% > 2025/05 營業占比 23.3%",
                 yoy_growth: "📈 YOY% = ∞",
@@ -2127,7 +2132,7 @@
                 total_equipment: "總設備台數",
                 
                 // 生產流程
-                mold_process_mgmt: "模具製造專業流程管理",
+                mold_process_mgmt: "逆向模具製造流程",
                 complete_mold_process: "完整模具製造流程",
                 step1_title: "3D逆向建圖",
                 step1_desc: "高精度掃描與CAD重建",
@@ -2157,7 +2162,7 @@
                 golf_flow: "球頭模具設計 → 加工製造 → 試模調整 → 量產支援",
                 
                 // 逆向工程生產實績
-                reverse_engineering_results: "逆向工程模具生產實績",
+                reverse_engineering_results: "模具生產實績",
                 trial_count_stats: "正式量產前的試模次數統計",
                 trial_insight: "📊 試模效率大幅提升：一次試模成功率從36.84%提升至59.38%",
                 success_rate_comparison: "量產模具生產成功率比較",
@@ -2165,7 +2170,7 @@
                 quality_insight: "🎯 高成功率(≥60%)模具比例從75.0%提升至85.3%，品質持續優化",
                 
                 // 結語
-                development_vision: "模具製造領域發展願景",
+                development_vision: "威拓的發展願景",
                 mold_strategy: "模具技術發展策略",
                 strategy1: "→ 深化3D逆向工程技術領先地位",
                 strategy2: "→ 擴展試模優化服務範圍",
@@ -2201,7 +2206,7 @@
                 full_address: "815高雄市大社區旗楠路92之10號",
                 
                 // 公司沿革
-                company_history: "企業発展マイルストーン",
+                company_history: "重要発展プロセス",
                 establishment: "創立基盤",
                 founding_date: "2024年5月",
                 founding_desc: "「品質第一、誠実経営」理念で創立、高品質金属製品と精密加工サービスに専念し、堅実な技術基盤を構築",
@@ -2213,7 +2218,7 @@
                 vision_desc: "専門技術分野の深耕、運営規模の拡大、精密製造とスマート生産に向けて進み、業界標準となり、顧客により高い付加価値を創造",
                 
                 // 組織架構
-                org_structure: "組織構造体系",
+                org_structure: "ウィントップ組織図",
                 current_employees: "現在の従業員：6名",
                 chairman: "会長",
                 ceo: "社長/CEO",
@@ -2235,7 +2240,7 @@
                 qa_responsible: "責任者：淑芬、淵澤",
                 
                 // 產品佔比
-                product_analysis: "製品売上比率分析",
+                product_analysis: "製品売上比率",
                 hardware_components: "金属部品",
                 hardware_desc: "多様化精密部品製造",
                 golf_heads: "ゴルフヘッド",
@@ -2244,7 +2249,7 @@
                 mold_desc: "押出金型専門製造",
                 
                 // 產品介紹
-                core_product_services: "コア製品ライン専門サービス",
+                core_product_services: "主力製品ライン紹介",
                 mold_service_title: "発展の主力：専門金型製造サービス",
                 business_growth: "2024/05 売上比率 0% > 2025/05 売上比率 23.3%",
                 yoy_growth: "📈 前年比 = ∞",
@@ -2299,7 +2304,7 @@
                 total_equipment: "総設備台数",
                 
                 // 生產流程
-                mold_process_mgmt: "金型製造専門工程管理",
+                mold_process_mgmt: "リバース金型製造プロセス",
                 complete_mold_process: "完全金型製造工程",
                 step1_title: "3Dリバースモデリング",
                 step1_desc: "高精度スキャン・CAD再構築",
@@ -2329,7 +2334,7 @@
                 golf_flow: "ヘッド金型設計 → 加工製造 → 試作調整 → 量産支援",
                 
                 // 逆向工程生產實績
-                reverse_engineering_results: "リバースエンジニアリング金型生産実績",
+                reverse_engineering_results: "金型生産実績",
                 trial_count_stats: "正式量産前の試作回数統計",
                 trial_insight: "📊 試作効率が大幅向上：1回試作成功率が36.84%から59.38%に向上",
                 success_rate_comparison: "量産金型生産成功率比較",
@@ -2337,7 +2342,7 @@
                 quality_insight: "🎯 高成功率(≥60%)金型の比率が75.0%から85.3%に向上、品質継続最適化",
                 
                 // 結語
-                development_vision: "金型製造分野発展ビジョン",
+                development_vision: "ウィントップの発展ビジョン",
                 mold_strategy: "金型技術発展戦略",
                 strategy1: "→ 3Dリバースエンジニアリング技術の先進地位深化",
                 strategy2: "→ 試作最適化サービス範囲拡大",
