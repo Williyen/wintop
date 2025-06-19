@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>威拓精密股份有限公司 - 企業簡報</title>
+    <!-- 預載入字體 -->
+    <link rel="preload" href="./GenJyuuGothicL-P-Normal.ttf" as="font" type="font/ttf" crossorigin>
     <style>
         * {
             margin: 0;
@@ -61,7 +63,7 @@
             src: url('./GenJyuuGothicL-P-Normal.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
-            font-display: swap;
+            font-display: optional; /* 更積極的載入策略 */
         }
 
         body {
