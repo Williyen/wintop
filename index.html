@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>威拓精密股份有限公司 - 企業簡報</title>
-        <!-- 預載入字體 -->
-    <link rel="preload" href="./GenJyuuGothicL-P-Normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./GenJyuuGothicL-P-Normal.ttf" as="font" type="font/ttf" crossorigin>
     <style>
         * {
             margin: 0;
@@ -52,24 +49,14 @@
             --transition-slow: 0.5s ease;
         }
 
- @font-face {
-            font-family: 'GenJyuuGothic';
-            src: url('./GenJyuuGothicL-P-Normal.woff2') format('woff2'),
-                 url('./GenJyuuGothicL-P-Normal.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: optional; /* 更積極的載入策略 */
-        }
-
         body {
-            font-family: 'GenJyuuGothic', 'Microsoft JhengHei', '微軟正黑體', 'Noto Sans CJK TC', sans-serif;
+            font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             color: var(--text-gray);
             overflow-x: hidden;
             font-size: var(--body-size);
             line-height: 1.6;
         }
-
 
         .container {
             max-width: 1400px;
@@ -385,13 +372,14 @@
         .legend-item {
             display: flex;
             align-items: center;
-            gap: var(--spacing-md);
+            gap: var(--spacing-sm);
             background: white;
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius-md);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
             border: 2px solid var(--border-gray);
             box-shadow: var(--shadow-light);
             transition: all var(--transition-medium);
+            font-size: var(--small-size);
         }
 
         .legend-item:hover {
@@ -401,14 +389,14 @@
         }
 
         .legend-color {
-            width: 30px;
-            height: 30px;
-            border-radius: var(--border-radius-sm);
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
             flex-shrink: 0;
         }
 
         .legend-text {
-            font-size: var(--h4-size);
+            font-size: var(--body-size);
             font-weight: bold;
             color: var(--text-gray);
         }
@@ -462,13 +450,17 @@
         .chart-container {
             background: white;
             border-radius: var(--border-radius-lg);
-            padding: var(--spacing-lg);
+            padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
             box-shadow: var(--shadow-medium);
             border: 2px solid var(--border-gray);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .chart-container h3 {
             margin-bottom: var(--spacing-sm);
+            margin-top: 0;
         }
 
         .bar-chart {
@@ -564,8 +556,20 @@
         .chart-legend {
             display: flex;
             justify-content: center;
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-md);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-sm);
+        }
+
+        .chart-legend .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85em;
+            padding: 6px 12px;
+            background: white;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--border-gray);
+            box-shadow: var(--shadow-light);
         }
 
         .legend-color.period1 {
@@ -578,8 +582,8 @@
 
         .chart-insight {
             text-align: center;
-            margin-top: var(--spacing-md);
-            padding: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-md);
             background: var(--light-red);
             border-radius: var(--border-radius-sm);
             font-weight: 600;
@@ -1062,7 +1066,11 @@
             }
 
             .chart-bars {
-                height: 220px;
+                height: 200px;
+            }
+
+            .bar-set {
+                height: 180px;
             }
 
             .bar {
@@ -1074,8 +1082,8 @@
             }
 
             .comparison-label {
-                width: 120px;
-                font-size: 0.9em;
+                width: 100px;
+                font-size: 0.85em;
             }
 
             .donut-chart {
@@ -1770,7 +1778,7 @@
                                     <button class="toggle-btn" onclick="togglePeriod(2)" id="period-btn-2">24/12-25/05</button>
                                 </div>
                             </div>
-                            <div class="chart-insight" style="margin-top: var(--spacing-lg);">
+                            <div class="chart-insight" style="margin-top: var(--spacing-sm);">
                                 <p data-translate="quality_insight">🎯 高成功率(≥60%)模具比例從75.0%提升至85.3%，品質持續優化</p>
                             </div>
                         </div>
