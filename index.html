@@ -7,10 +7,6 @@
     <!-- 預載入字體 -->
     <link rel="preload" href="./GenJyuuGothicL-P-Normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./GenJyuuGothicL-P-Normal.ttf" as="font" type="font/ttf" crossorigin>
-    
-    <!-- PDF輸出相關庫 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -991,59 +987,6 @@
             box-shadow: var(--shadow-light);
         }
 
-        /* PDF輸出按鈕 */
-        .pdf-export-btn {
-            position: fixed;
-            top: var(--spacing-lg);
-            left: var(--spacing-lg);
-            background: var(--primary-red);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: var(--spacing-xs) var(--spacing-md);
-            font-size: var(--small-size);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-medium);
-            z-index: 1001;
-            box-shadow: var(--shadow-medium);
-            font-family: 'GenJyuuGothic', 'Microsoft JhengHei', '微軟正黑體', 'Noto Sans CJK TC', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .pdf-export-btn:hover {
-            background: var(--secondary-red);
-            transform: scale(1.05);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .pdf-export-btn:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .pdf-export-btn .loading-spinner {
-            width: 16px;
-            height: 16px;
-            border: 2px solid transparent;
-            border-top: 2px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            display: none;
-        }
-
-        .pdf-export-btn.loading .loading-spinner {
-            display: block;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         /* 統一導航控制 */
         .navigation {
             position: fixed;
@@ -1228,13 +1171,6 @@
             }
             
             .lang-btn {
-                padding: 8px 14px;
-                font-size: 0.8em;
-            }
-
-            .pdf-export-btn {
-                top: var(--spacing-md);
-                left: var(--spacing-md);
                 padding: 8px 14px;
                 font-size: 0.8em;
             }
@@ -1820,60 +1756,57 @@
                         </div>
                     </div>
 
-                    <!-- 第三個圖表：量產模具生產成功率區間分析 -->
-                    <div class="chart-container">
-                        <h3 style="color: var(--primary-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="success_rate_analysis">量產模具生產成功率區間分析</h3>
-                        <div class="donut-chart-container">
-                            <div class="donut-chart">
-                                <svg viewBox="0 0 200 200" class="donut-svg">
-                                    <!-- 背景圓環 -->
-                                    <circle cx="100" cy="100" r="70" fill="none" stroke="#f0f0f0" stroke-width="30"/>
-                                    <!-- Period 1 數據：25% 和 75% -->
-                                    <g class="period1-data">
-                                        <!-- ≤60%: 25% = 90度 -->
-                                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary-red)" stroke-width="15"
-                                                stroke-dasharray="109.96 329.87" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
-                                        <!-- ≥60%: 75% = 270度 -->
-                                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--orange)" stroke-width="15"
-                                                stroke-dasharray="329.87 109.96" stroke-dashoffset="-109.96" transform="rotate(-90 100 100)"/>
-                                    </g>
-                                    <!-- Period 2 數據：14.7% 和 85.3% -->
-                                    <g class="period2-data" style="display: none;">
-                                        <!-- ≤60%: 14.7% = 52.92度 -->
-                                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary-red)" stroke-width="15"
-                                                stroke-dasharray="64.75 375.08" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
-                                        <!-- ≥60%: 85.3% = 307.08度 -->
-                                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--orange)" stroke-width="15"
-                                                stroke-dasharray="375.08 64.75" stroke-dashoffset="-64.75" transform="rotate(-90 100 100)"/>
-                                    </g>
-                                    <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" class="donut-center-text">
-                                        <tspan x="100" dy="-10" class="donut-period">24/05-24/11</tspan>
-                                        <tspan x="100" dy="25" class="donut-total">總計: 24個</tspan>
-                                    </text>
-                                </svg>
-                                <div class="donut-legend">
-                                    <div class="donut-legend-item">
-                                        <span class="legend-color" style="background: var(--primary-red);"></span>
-                                        <span>👎≤60%: <strong class="value1">6</strong>個 (<span class="percent1">25.0%</span>)</span>
-                                    </div>
-                                    <div class="donut-legend-item">
-                                        <span class="legend-color" style="background: var(--orange);"></span>
-                                        <span>👍≥60%: <strong class="value2">18</strong>個 (<span class="percent2">75.0%</span>)</span>
-                                    </div>
-                                </div>
-                                <div class="period-toggle">
-                                    <button class="toggle-btn active" onclick="togglePeriod(1)" id="period-btn-1">24/05-24/11</button>
-                                    <button class="toggle-btn" onclick="togglePeriod(2)" id="period-btn-2">24/12-25/05</button>
-                                </div>
-                            </div>
-                            <div class="chart-insight" style="margin-top: var(--spacing-md);">
-                                <p data-translate="quality_insight">🎯 高成功率(≥60%)模具比例從75.0%提升至85.3%，品質持續優化</p>
-                            </div>
-                        </div>
+    <!-- 第三個圖表：量產模具生產成功率區間分析 -->
+    <div class="chart-container">
+        <h3 style="color: var(--primary-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="success_rate_analysis">量產模具生產成功率區間分析</h3>
+        <div class="donut-chart-container">
+            <div class="donut-chart">
+                <svg viewBox="0 0 200 200" class="donut-svg">
+                    <!-- 背景圓環 -->
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="#f0f0f0" stroke-width="30"/>
+                    <!-- Period 1 數據：25% 和 75% -->
+                    <g class="period1-data">
+                        <!-- ≤60%: 25% = 90度 -->
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary-red)" stroke-width="15"
+                                stroke-dasharray="109.96 329.87" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                        <!-- ≥60%: 75% = 270度 -->
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--orange)" stroke-width="15"
+                                stroke-dasharray="329.87 109.96" stroke-dashoffset="-109.96" transform="rotate(-90 100 100)"/>
+                    </g>
+                    <!-- Period 2 數據：14.7% 和 85.3% -->
+                    <g class="period2-data" style="display: none;">
+                        <!-- ≤60%: 14.7% = 52.92度 -->
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary-red)" stroke-width="15"
+                                stroke-dasharray="64.75 375.08" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                        <!-- ≥60%: 85.3% = 307.08度 -->
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--orange)" stroke-width="15"
+                                stroke-dasharray="375.08 64.75" stroke-dashoffset="-64.75" transform="rotate(-90 100 100)"/>
+                    </g>
+                    <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" class="donut-center-text">
+                        <tspan x="100" dy="-10" class="donut-period">24/05-24/11</tspan>
+                        <tspan x="100" dy="25" class="donut-total">總計: 24個</tspan>
+                    </text>
+                </svg>
+                <div class="donut-legend">
+                    <div class="donut-legend-item">
+                        <span class="legend-color" style="background: var(--primary-red);"></span>
+                        <span>👎≤60%: <strong class="value1">6</strong>個 (<span class="percent1">25.0%</span>)</span>
+                    </div>
+                    <div class="donut-legend-item">
+                        <span class="legend-color" style="background: var(--orange);"></span>
+                        <span>👍≥60%: <strong class="value2">18</strong>個 (<span class="percent2">75.0%</span>)</span>
                     </div>
                 </div>
+                <div class="period-toggle">
+                    <button class="toggle-btn active" onclick="togglePeriod(1)" id="period-btn-1">24/05-24/11</button>
+                    <button class="toggle-btn" onclick="togglePeriod(2)" id="period-btn-2">24/12-25/05</button>
+                </div>
+            </div>
+            <div class="chart-insight" style="margin-top: var(--spacing-md);">
+                <p data-translate="quality_insight">🎯 高成功率(≥60%)模具比例從75.0%提升至85.3%，品質持續優化</p>
             </div>
         </div>
+    </div>
     </section>
 
     <!-- 結語 -->
@@ -1918,13 +1851,6 @@
             </div>
         </div>
     </section>
-
-    <!-- PDF輸出按鈕 -->
-    <button class="pdf-export-btn" onclick="generatePDF()" id="pdfBtn">
-        <span class="loading-spinner"></span>
-        <span>📄</span>
-        <span data-translate="export_pdf">輸出PDF</span>
-    </button>
 
     <!-- 語言切換按鈕 -->
     <div class="language-switcher">
@@ -2064,17 +1990,399 @@
             }
         }
 
-        // PDF生成功能
-        async function generatePDF() {
-            const pdfBtn = document.getElementById('pdfBtn');
-            const originalSlideIndex = currentSlideIndex;
-            
-            try {
-                // 設置載入狀態
-                pdfBtn.disabled = true;
-                pdfBtn.classList.add('loading');
-                pdfBtn.querySelector('[data-translate="export_pdf"]').textContent = 
-                    translations[currentLanguage].generating_pdf;
+        // 鍵盤導航
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            }
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // 語言切換功能
+        const translations = {
+            zh: {
+                // 首頁
+                company_name: "威拓精密股份有限公司",
+                company_name_en: "WIN TOP PRECISION CO., LTD.",
+                core_values: "企業核心價值",
+                mold_expert: "模具製造專家",
+                reverse_engineering: "3D逆向工程",
+                trial_optimization: "試模優化服務",
+                quality_assurance: "精密品質保證",
+                technical_services: "專業技術服務",
+                extrusion_mold: "擠型模具專業製造",
+                reverse_tech: "3D逆向工程技術",
+                trial_service: "模具試模與優化",
+                hardware_parts: "精密五金零件製造",
+                golf_head: "高爾夫球頭專業加工",
+                area_info: "土地面積：340坪 / 廠區樓板面積：200坪",
+                full_address: "815高雄市大社區旗楠路92之10號",
                 
-                // 隱藏導航按鈕以避免在PDF中顯示
-                const navigation = document.querySelector
+                // 公司沿革
+                company_history: "重要發展歷程",
+                establishment: "創立奠基",
+                founding_date: "2024年5月",
+                founding_desc: "秉持「品質第一、誠信經營」理念創立，專注高品質五金製品及精密加工服務，建立穩固的技術基礎",
+                business_expansion: "業務拓展",
+                expansion_desc: "主要營業項目全面涵蓋五金零件製造、高爾夫球頭加工以及模具開發與製造，廣泛應用於機械、汽機車、建築與模具產業",
+                tech_upgrade: "技術升級",
+                upgrade_desc: "持續引進國際先進生產設備與技術，致力於技術研發與專業人員培訓，全面提升產品精度與加工效率，滿足客戶多元化需求",
+                future_vision: "未來願景",
+                vision_desc: "深耕專業技術領域，擴大營運規模，朝向精密製造與智慧生產邁進，成為業界標竿，為客戶創造更高附加價值",
+                
+                // 組織架構
+                org_structure: "威拓組織圖",
+                current_employees: "現有員工：6人",
+                chairman: "董事長",
+                vice_president: "執行副總經理",
+                admin_dept: "管理部",
+                admin_functions: "人事、總務、帳務、採購",
+                sales_dept: "業務/行銷部",
+                sales_functions: "客戶開發、報價、出貨",
+                rd_dept: "研發部",
+                rd_functions: "產品設計、開發、程式編輯",
+                production_dept: "生產部",
+                production_functions: "製造、機台維護、排程",
+                qa_dept: "品管部",
+                qa_functions: "檢驗、測試",
+                
+                // 產品佔比
+                product_analysis: "產品營業佔比",
+                hardware_components: "五金零件",
+                hardware_desc: "多樣化精密零件製造",
+                golf_heads: "高爾夫球頭",
+                golf_desc: "專業球頭加工服務",
+                mold_manufacturing: "模具製造",
+                mold_desc: "擠型模具專業製造",
+                
+                // 產品介紹
+                core_product_services: "主力產品線介紹",
+                mold_service_title: "發展主力：專業模具製造服務",
+                business_growth: "2024/05 營業占比 0% > 2025/05 營業占比 23.3%",
+                yoy_growth: "📈 YOY% = ∞",
+                reverse_tech_title: "3D逆向工程技術",
+                high_precision_scan: "高精度3D掃描：",
+                scan_desc: "精確擷取複雜幾何形狀",
+                reverse_modeling: "逆向建模：",
+                modeling_desc: "CAD/CAM專業設計重建",
+                dimension_analysis: "尺寸分析：",
+                analysis_desc: "原件與模型精密比對",
+                design_optimization: "優化設計：",
+                optimization_desc: "改善原有結構缺陷",
+                trial_service_title: "試模優化服務",
+                first_trial: "首次試模：",
+                trial_desc: "驗證模具設計可行性",
+                problem_diagnosis: "問題診斷：",
+                diagnosis_desc: "分析成型缺陷原因",
+                mold_adjustment: "模具調修：",
+                adjustment_desc: "精密修正與優化",
+                mass_verification: "量產驗證：",
+                verification_desc: "確保穩定生產品質",
+                service_summary_line1: "重點開拓領域 • 模具生命週期",
+                service_summary_line2: "~從逆向工程到量產優化的一站式服務~",
+                precision_hardware: "精密五金零件",
+                hardware_intro: "目前主要營業項目，提供穩定營收基礎",
+                mature_tech: "成熟技術能力：",
+                cnc_tech: "CNC精密加工技術",
+                surface_treatment: "多元表面處理工藝",
+                quality_control: "完整製程品質管控",
+                custom_design: "客製化設計服務",
+                golf_head_service: "高爾夫球頭",
+                golf_intro: "專業技術延伸應用服務",
+                service_scope: "專業服務範圍：",
+                golf_mold_dev: "球頭模具開發製造",
+                forging_casting: "鍛造與鑄造工藝",
+                product_design: "產品設計與打樣",
+                oem_odm: "OEM/ODM完整服務",
+                
+                // 生產能力
+                production_capacity: "生產能力與設備配置",
+                precision_tech: "精密加工技術",
+                precision_mm: "加工精度(mm)",
+                avg_machines: "平均機台運轉(台)",
+                monthly_capacity: "月產能績效表現",
+                hardware_pcs: "五金零件(pcs)",
+                golf_pcs: "球頭加工(pcs)",
+                mold_pcs: "模具製造(pcs)",
+                equipment_config: "主要生產設備配置",
+                machining_centers: "綜合立式加工機",
+                edm_machines: "放電加工機",
+                engraving_machines: "精密雕刻機",
+                total_equipment: "總設備台數",
+                
+                // 生產流程
+                mold_process_mgmt: "逆向模具製造流程",
+                complete_mold_process: "完整模具製造流程",
+                step1_title: "3D逆向建圖",
+                step1_desc: "高精度掃描與CAD重建",
+                step2_title: "車床加工",
+                step2_desc: "精密車削成型",
+                step3_title: "熱處理",
+                step3_desc: "強化模具硬度",
+                step4_title: "二次加工",
+                step4_desc: "精密修正加工",
+                step5_title: "放電處理",
+                step5_desc: "複雜形狀加工",
+                step6_title: "線切割",
+                step6_desc: "精密切割成型",
+                step7_title: "試模優化",
+                step7_desc: "測試與調整",
+                step8_title: "交付使用",
+                step8_desc: "品質保證出貨",
+                step9_title: "試模回饋",
+                step9_desc: "蒐集試模數據以優化圖面",
+                step10_title: "3D逆向建圖(續)",
+                step10_desc: "高精度掃描與CAD重建",
+                hardware_support_process: "五金零件輔助製程",
+                standard_process: "標準加工流程：",
+                hardware_flow: "圖面設計 → 材料準備 → CNC加工 → 品質檢驗 → 包裝出貨",
+                golf_integration_service: "球頭模具整合服務",
+                integration_service: "整合性服務：",
+                golf_flow: "球頭模具設計 → 加工製造 → 試模調整 → 量產支援",
+                
+                // 逆向工程生產實績
+                reverse_engineering_results: "模具生產實績",
+                trial_count_stats: "正式量產前的試模次數統計",
+                trial_insight: "📊 試模效率大幅提升：一次試模成功率從36.84%提升至59.38%",
+                success_rate_comparison: "量產模具生產成功率比較",
+                success_rate_analysis: "量產模具生產成功率區間分析",
+                quality_insight: "🎯 高成功率(≥60%)模具比例從75.0%提升至85.3%，品質持續優化",
+                inferior_to_old_vendor: "遜於舊廠商",
+                superior_to_old_vendor: "優於舊廠商",
+                
+                
+                // 結語
+                development_vision: "威拓的發展願景",
+                mold_strategy: "模具技術發展策略",
+                strategy1: "→ 深化3D逆向工程技術領先地位",
+                strategy2: "→ 擴展試模優化服務範圍",
+                strategy3: "→ 建立模具智慧製造體系",
+                strategy4: "→ 提升模具精度與效率",
+                strategy5: "→ 成為區域模具製造標竿",
+                innovation_core: "持續精進的目標",
+                core0: "~讓大同擠型生產~",
+                core1: "零試模",
+                core2: "零間斷",
+                core3: "零廢料",
+                lifecycle_service: "環保、永續、準確、穩定",
+                thank_you: "感謝聆聽",
+                company_final: "威拓精密股份有限公司",
+                tagline: "模具製造專家 • 3D逆向工程 • 試模優化服務 • 精密品質保證",
+                business_transformation: "~營業佔比正穩定轉型中~"
+            },
+            ja: {
+                // 首頁
+                company_name: "ウィントップ精密株式会社",
+                company_name_en: "WIN TOP PRECISION CO., LTD.",
+                core_values: "企業コア価値",
+                mold_expert: "金型製造専門家",
+                reverse_engineering: "3Dリバースエンジニアリング",
+                trial_optimization: "試作最適化サービス",
+                quality_assurance: "精密品質保証",
+                technical_services: "専門技術サービス",
+                extrusion_mold: "押出金型専門製造",
+                reverse_tech: "3Dリバースエンジニアリング技術",
+                trial_service: "金型試作・最適化",
+                hardware_parts: "精密金属部品製造",
+                golf_head: "ゴルフヘッド専門加工",
+                area_info: "土地面積：340坪 / 工場床面積：200坪",
+                full_address: "815高雄市大社區旗楠路92之10號",
+                
+                // 公司沿革
+                company_history: "重要発展プロセス",
+                establishment: "創立基盤",
+                founding_date: "2024年5月",
+                founding_desc: "「品質第一、誠実経営」理念で創立、高品質金属製品と精密加工サービスに専念し、堅実な技術基盤を構築",
+                business_expansion: "事業拡大",
+                expansion_desc: "主要事業項目は金属部品製造、ゴルフヘッド加工、金型開発・製造を全面的にカバーし、機械、自動車・オートバイ、建築、金型産業に広く応用",
+                tech_upgrade: "技術向上",
+                upgrade_desc: "国際先進生産設備と技術の継続的導入、技術研究開発と専門人材育成に注力し、製品精度と加工効率を全面的に向上、顧客の多様化ニーズに対応",
+                future_vision: "将来ビジョン",
+                vision_desc: "専門技術分野の深耕、運営規模の拡大、精密製造とスマート生産に向けて進み、業界標準となり、顧客により高い付加価値を創造",
+                
+                // 組織架構
+                org_structure: "ウィントップ組織図",
+                current_employees: "現在の従業員：6名",
+                chairman: "会長",
+                vice_president: "執行副社長",
+                admin_dept: "管理部",
+                admin_functions: "人事、総務、経理、調達",
+                sales_dept: "営業/マーケティング部",
+                sales_functions: "顧客開発、見積、出荷",
+                rd_dept: "研究開発部",
+                rd_functions: "製品設計、開発、プログラム編集",
+                production_dept: "生産部",
+                production_functions: "製造、設備保守、スケジューリング",
+                qa_dept: "品質管理部",
+                qa_functions: "検査、テスト",
+                
+                // 產品佔比
+                product_analysis: "製品売上比率",
+                hardware_components: "金属部品",
+                hardware_desc: "多様化精密部品製造",
+                golf_heads: "ゴルフヘッド",
+                golf_desc: "専門ヘッド加工サービス",
+                mold_manufacturing: "金型製造",
+                mold_desc: "押出金型専門製造",
+                
+                // 產品介紹
+                core_product_services: "主力製品ライン紹介",
+                mold_service_title: "発展の主力：専門金型製造サービス",
+                business_growth: "2024/05 売上比率 0% > 2025/05 売上比率 23.3%",
+                yoy_growth: "📈 前年比 = ∞",
+                reverse_tech_title: "3Dリバースエンジニアリング技術",
+                high_precision_scan: "高精度3Dスキャン：",
+                scan_desc: "複雑な幾何形状の精密取得",
+                reverse_modeling: "リバースモデリング：",
+                modeling_desc: "CAD/CAM専門設計再構築",
+                dimension_analysis: "寸法分析：",
+                analysis_desc: "原品とモデルの精密比較",
+                design_optimization: "設計最適化：",
+                optimization_desc: "既存構造欠陥の改善",
+                trial_service_title: "試作最適化サービス",
+                first_trial: "初回試作：",
+                trial_desc: "金型設計の実現可能性検証",
+                problem_diagnosis: "問題診断：",
+                diagnosis_desc: "成形不良原因分析",
+                mold_adjustment: "金型調整：",
+                adjustment_desc: "精密修正と最適化",
+                mass_verification: "量産検証：",
+                verification_desc: "安定生産品質確保",
+                service_summary_line1: "重点開拓分野 • 金型ライフサイクル",
+                service_summary_line2: "〜リバースエンジニアリングから量産最適化までのワンストップサービス〜",
+                precision_hardware: "精密金属部品",
+                hardware_intro: "現在の主要事業項目、安定した売上基盤を提供",
+                mature_tech: "成熟技術能力：",
+                cnc_tech: "CNC精密加工技術",
+                surface_treatment: "多元表面処理工芸",
+                quality_control: "完全工程品質管理",
+                custom_design: "カスタマイズ設計サービス",
+                golf_head_service: "ゴルフヘッド",
+                golf_intro: "専門技術拡張応用サービス",
+                service_scope: "専門サービス範囲：",
+                golf_mold_dev: "ヘッド金型開発製造",
+                forging_casting: "鍛造・鋳造工芸",
+                product_design: "製品設計・試作",
+                oem_odm: "OEM/ODM完全サービス",
+                
+                // 生產能力
+                production_capacity: "生産能力・設備配置",
+                precision_tech: "精密加工技術",
+                precision_mm: "加工精度(mm)",
+                avg_machines: "平均設備稼働(台)",
+                monthly_capacity: "月産能力実績",
+                hardware_pcs: "金属部品(pcs)",
+                golf_pcs: "ヘッド加工(pcs)",
+                mold_pcs: "金型製造(pcs)",
+                equipment_config: "主要生産設備配置",
+                machining_centers: "総合立型加工機",
+                edm_machines: "放電加工機",
+                engraving_machines: "精密彫刻機",
+                total_equipment: "総設備台数",
+                
+                // 生產流程
+                mold_process_mgmt: "リバース金型製造プロセス",
+                complete_mold_process: "完全金型製造工程",
+                step1_title: "3Dリバースモデリング",
+                step1_desc: "高精度スキャン・CAD再構築",
+                step2_title: "旋盤加工",
+                step2_desc: "精密切削成形",
+                step3_title: "熱処理",
+                step3_desc: "金型硬度強化",
+                step4_title: "二次加工",
+                step4_desc: "精密修正加工",
+                step5_title: "放電処理",
+                step5_desc: "複雑形状加工",
+                step6_title: "ワイヤカット",
+                step6_desc: "精密切断成形",
+                step7_title: "試作最適化",
+                step7_desc: "テスト・調整",
+                step8_title: "納品使用",
+                step8_desc: "品質保証出荷",
+                step9_title: "試作フィードバック",
+                step9_desc: "試作データ収集による図面最適化",
+                step10_title: "3Dリバースモデリング(続)",
+                step10_desc: "高精度スキャン・CAD再構築",
+                hardware_support_process: "金属部品補助工程",
+                standard_process: "標準加工工程：",
+                hardware_flow: "図面設計 → 材料準備 → CNC加工 → 品質検査 → 梱包出荷",
+                golf_integration_service: "ヘッド金型統合サービス",
+                integration_service: "統合サービス：",
+                golf_flow: "ヘッド金型設計 → 加工製造 → 試作調整 → 量産支援",
+                
+                // 逆向工程生產實績
+                reverse_engineering_results: "金型生産実績",
+                trial_count_stats: "正式量産前の試作回数統計",
+                trial_insight: "📊 試作効率が大幅向上：1回試作成功率が36.84%から59.38%に向上",
+                success_rate_comparison: "量産金型生産成功率比較",
+                success_rate_analysis: "量産金型生産成功率区間分析",
+                quality_insight: "🎯 高成功率(≥60%)金型の比率が75.0%から85.3%に向上、品質継続最適化",
+                inferior_to_old_vendor: "従来メーカーに劣る",
+                superior_to_old_vendor: "従来メーカーに優る",
+                
+                // 結語
+                development_vision: "ウィントップの発展ビジョン",
+                mold_strategy: "金型技術発展戦略",
+                strategy1: "→ 3Dリバースエンジニアリング技術の先進地位深化",
+                strategy2: "→ 試作最適化サービス範囲拡大",
+                strategy3: "→ 金型スマート製造体系構築",
+                strategy4: "→ 金型精度・効率向上",
+                strategy5: "→ 地域金型製造標準となる",
+                innovation_core: "継続改善の目標",
+                core0: "大同の押出成形生産を",
+                core1: "ゼロ試作",
+                core2: "ゼロ中断",
+                core3: "ゼロ廃棄",
+                lifecycle_service: "環境保護・持続可能・正確・安定",
+                thank_you: "ご清聴ありがとうございました",
+                company_final: "ウィントップ精密株式会社",
+                tagline: "金型製造専門家 • 3Dリバースエンジニアリング • 試作最適化サービス • 精密品質保証",
+                business_transformation: "~売上比率は安定的に転換中~"
+            }
+        };
+
+        let currentLanguage = 'zh';
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // 更新按鈕狀態
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`${lang}-btn`).classList.add('active');
+            
+            // 翻譯所有文本
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // 觸控支援
+        let startX = 0;
+        document.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > 50) { // 最小滑動距離
+                if (diff > 0) {
+                    nextSlide(); // 左滑，下一張
+                } else {
+                    prevSlide(); // 右滑，上一張
+                }
+            }
+        });
+    </script>
+</body>
+</html>
