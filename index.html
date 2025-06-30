@@ -1644,62 +1644,62 @@
                 
                 <!-- 統計圖表區 -->
                 <div class="stats-charts-section">
-                    <!-- 第一個圖表：模具進度統計 - 修正版 -->
-<div class="chart-container">
-    <h3 style="color: var(--primary-red); text-align: center; margin-bottom: 35px;" data-translate="063001">模具進度統計</h3>
-    
-    <div class="bar-chart">
-        <div class="chart-bars">
-            <div class="bar-group">
-                <div class="bar-label" data-translate="063002">發包總數</div>
-                <div class="bar-set">
-                    <div class="bar period1" style="height: 100%;">
-                        <span class="bar-value">118</span>
+                    <!-- 第一個圖表：模具進度統計 -->
+                    <div class="chart-container">
+                        <h3 style="color: var(--primary-red); text-align: center; margin-bottom: 35px;" data-translate="mold_progress_stats">模具進度統計</h3>
+                        
+                        <div class="bar-chart">
+                            <div class="chart-bars">
+                                <div class="bar-group">
+                                    <div class="bar-label" data-translate="total_contracted">發包總數</div>
+                                    <div class="bar-set">
+                                        <div class="bar period1" style="height: 100%;">
+                                            <span class="bar-value">118</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar-label" data-translate="incomplete_molds">未製完模具</div>
+                                    <div class="bar-set">
+                                        <div class="bar period2" style="height: 35.6%;">
+                                            <span class="bar-value">42</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar-label" data-translate="pending_trial">未試模完成</div>
+                                    <div class="bar-set">
+                                        <div class="bar period1" style="height: 5.1%;">
+                                            <span class="bar-value">6</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar-label" data-translate="trial_completed">試模完成</div>
+                                    <div class="bar-set">
+                                        <div class="bar period2" style="height: 59.3%;">
+                                            <span class="bar-value">70</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color period1"></span>
+                                    <span data-translate="status_pending">待處理項目</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color period2"></span>
+                                    <span data-translate="status_completed">已完成項目</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-insight">
+                            <p data-translate="mold_progress_insight">📊 模具項目整體進度：已完成70項 (59.3%)，進行中48項 (40.7%)</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="bar-group">
-                <div class="bar-label" data-translate="063003">未製完模具</div>
-                <div class="bar-set">
-                    <div class="bar period2" style="height: 35.6%;">
-                        <span class="bar-value">42</span>
-                    </div>
-                </div>
-            </div>
-            <div class="bar-group">
-                <div class="bar-label" data-translate="063004">未試模完成</div>
-                <div class="bar-set">
-                    <div class="bar period1" style="height: 5.1%;">
-                        <span class="bar-value">6</span>
-                    </div>
-                </div>
-            </div>
-            <div class="bar-group">
-                <div class="bar-label" data-translate="063005">試模完成</div>
-                <div class="bar-set">
-                    <div class="bar period2" style="height: 59.3%;">
-                        <span class="bar-value">70</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="chart-legend">
-            <div class="legend-item">
-                <span class="legend-color period1"></span>
-                <span data-translate="063006">待處理項目</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-color period2"></span>
-                <span data-translate="063007">已完成項目</span>
-            </div>
-        </div>
-    </div>
-    
-    <div class="chart-insight">
-        <p data-translate="063008">📊 模具項目整體進度：已完成70項 (59.3%)，進行中48項 (40.7%)</p>
-    </div>
-</div>
 
 
                     <!-- 第二個圖表：正式量產前的試模次數統計 -->
@@ -2246,14 +2246,14 @@
                 comparison_insight: "📊 優於舊廠商比例從20.8%大幅提升至47.1%，競爭優勢明顯增強",
                 inferior_to_old_vendor: "遜於舊廠商",
                 superior_to_old_vendor: "優於舊廠商",
-                063001: "模具進度統計",
-                063002: "發包總數",
-                063003: "未製完模具",
-                063004: "未試模完成",
-                063005: "試模完成",
-                063006: "待處理項目",
-                063007: "已完成項目",
-                063008: "📊 模具項目整體進度：已完成80項 (67.8%)，進行中38項 (32.2%)",
+                mold_progress_stats: "模具進度統計",
+                total_contracted: "發包總數",
+                incomplete_molds: "未製完模具",
+                pending_trial: "未試模完成",
+                trial_completed: "試模完成",
+                status_pending: "待處理項目",
+                status_completed: "已完成項目",
+                mold_progress_insight: "📊 模具項目整體進度：已完成80項 (67.8%)，進行中38項 (32.2%)",
                 
                 // 結語
                 development_vision: "威拓的發展願景",
@@ -2427,14 +2427,14 @@
                 comparison_insight: "📊 従来メーカーを上回る比率が20.8%から47.1%に大幅向上、競争優位性が明確に強化",
                 inferior_to_old_vendor: "従来メーカーに劣る",
                 superior_to_old_vendor: "従来メーカーに優る",
-                063001: "金型進捗統計",
-                063002: "発注総数",
-                063003: "未完成金型",
-                063004: "未試作完成",
-                063005: "試作完成",
-                063006: "処理待ち項目",
-                063007: "完成済み項目",
-                063008: "📊 金型全体進捗：完成済80項目 (67.8%)、進行中38項目 (32.2%)",
+                mold_progress_stats: "金型進捗統計",
+                total_contracted: "発注総数",
+                incomplete_molds: "未完成金型",
+                pending_trial: "未試作完成",
+                trial_completed: "試作完成",
+                status_pending: "処理待ち項目",
+                status_completed: "完成済み項目",
+                mold_progress_insight: "📊 金型全体進捗：完成済80項目 (67.8%)、進行中38項目 (32.2%)",
                 
                 // 結語
                 development_vision: "ウィントップの発展ビジョン",
