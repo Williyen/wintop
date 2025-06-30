@@ -1229,8 +1229,8 @@
                             <span class="dot" onclick="currentCarouselSlide(5)"></span>
                         </div>
                     </div>
-                </div>
-                
+
+                                   
                 <div style="text-align: center; margin: var(--spacing-lg) 0;">
                     <div style="font-size: var(--h4-size); color: var(--secondary-red); font-weight: 600; background: rgba(220, 28, 87, 0.1); padding: var(--spacing-md); border-radius: var(--border-radius-md); display: inline-block;">
                         <p style="margin: 0 0 var(--spacing-xs) 0; font-weight: bold; font-size: var(--small-size); color: var(--text-gray);"><span data-translate="area_info">土地面積：340坪 / 廠區樓板面積：200坪</span></p>
@@ -1303,6 +1303,8 @@
             </div>
         </div>
     </section>
+
+       </section>
 
     <!-- 組織架構 -->
     <section class="slide">
@@ -1642,7 +1644,64 @@
                 
                 <!-- 統計圖表區 -->
                 <div class="stats-charts-section">
-                    <!-- 第一個圖表：正式量產前的試模次數統計 -->
+                    <!-- 第一個圖表：廣豐模具項目進度統計 -->
+<div class="chart-container">
+    <h3 style="color: var(--primary-red); text-align: center; margin-bottom: 35px;">廣豐模具項目進度統計</h3>
+    
+    <div class="bar-chart">
+        <div class="chart-bars">
+            <div class="bar-group">
+                <div class="bar-label">發包總數</div>
+                <div class="bar-set">
+                    <div class="bar period1" style="height: 100%;">
+                        <span class="bar-value">118</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bar-group">
+                <div class="bar-label">未製完模具</div>
+                <div class="bar-set">
+                    <div class="bar period2" style="height: 35.6%;">
+                        <span class="bar-value">42</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bar-group">
+                <div class="bar-label">未試模完成</div>
+                <div class="bar-set">
+                    <div class="bar period1" style="height: 5.1%;">
+                        <span class="bar-value">6</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bar-group">
+                <div class="bar-label">試模完成</div>
+                <div class="bar-set">
+                    <div class="bar period2" style="height: 59.3%;">
+                        <span class="bar-value">70</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chart-legend">
+            <div class="legend-item">
+                <span class="legend-color period1"></span>
+                <span>待處理項目</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color period2"></span>
+                <span>已完成項目</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="chart-insight">
+        <p>📊 廣豐模具項目整體進度：已完成70項 (59.3%)，進行中48項 (40.7%)</p>
+    </div>
+</div>
+
+                    <!-- 第二個圖表：正式量產前的試模次數統計 -->
                     <div class="chart-container">
                         <h3 style="color: var(--primary-red); text-align: center; margin-bottom: 35px;" data-translate="trial_count_stats">正式量產前的試模次數統計</h3>
                         <div class="chart-wrapper">
@@ -1713,8 +1772,23 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="transformation-notice">
+                    <p data-translate="business_transformation">~營業佔比正穩定轉型中~</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <!-- 第二個圖表：量產模具生產成功率比較（威拓 vs 舊廠商） -->
+    <!-- 模具生產成功率分析 -->
+    <section class="slide">
+        <div class="container">
+            <div class="slide-content">
+                <h2 data-translate="success_rate_analysis_page">模具生產成功率分析</h2>
+                
+                <!-- 統計圖表區 -->
+                <div class="stats-charts-section">
+                    <!-- 第一個圖表：量產模具生產成功率比較（威拓 vs 舊廠商） -->
                     <div class="chart-container">
                         <h3 style="color: var(--primary-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="success_rate_comparison">量產模具生產成功率比較</h3>
                         <div class="comparison-chart">
@@ -1754,59 +1828,68 @@
                             </div>
                             <div class="chart-unit">單位：個</div>
                         </div>
+                        <div class="chart-insight">
+                            <p data-translate="comparison_insight">📊 優於舊廠商比例從20.8%大幅提升至47.1%，競爭優勢明顯增強</p>
+                        </div>
                     </div>
 
-    <!-- 第三個圖表：量產模具生產成功率區間分析 -->
-    <div class="chart-container">
-        <h3 style="color: var(--primary-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="success_rate_analysis">量產模具生產成功率區間分析</h3>
-        <div class="donut-chart-container">
-            <div class="donut-chart">
-                <svg viewBox="0 0 200 200" class="donut-svg">
-                    <!-- 背景圓環 -->
-                    <circle cx="100" cy="100" r="70" fill="none" stroke="#f0f0f0" stroke-width="30"/>
-                    <!-- Period 1 數據：25% 和 75% -->
-                    <g class="period1-data">
-                        <!-- ≤60%: 25% = 90度 -->
-                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary-red)" stroke-width="15"
-                                stroke-dasharray="109.96 329.87" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
-                        <!-- ≥60%: 75% = 270度 -->
-                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--orange)" stroke-width="15"
-                                stroke-dasharray="329.87 109.96" stroke-dashoffset="-109.96" transform="rotate(-90 100 100)"/>
-                    </g>
-                    <!-- Period 2 數據：14.7% 和 85.3% -->
-                    <g class="period2-data" style="display: none;">
-                        <!-- ≤60%: 14.7% = 52.92度 -->
-                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary-red)" stroke-width="15"
-                                stroke-dasharray="64.75 375.08" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
-                        <!-- ≥60%: 85.3% = 307.08度 -->
-                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--orange)" stroke-width="15"
-                                stroke-dasharray="375.08 64.75" stroke-dashoffset="-64.75" transform="rotate(-90 100 100)"/>
-                    </g>
-                    <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" class="donut-center-text">
-                        <tspan x="100" dy="-10" class="donut-period">24/05-24/11</tspan>
-                        <tspan x="100" dy="25" class="donut-total">總計: 24個</tspan>
-                    </text>
-                </svg>
-                <div class="donut-legend">
-                    <div class="donut-legend-item">
-                        <span class="legend-color" style="background: var(--primary-red);"></span>
-                        <span>👎≤60%: <strong class="value1">6</strong>個 (<span class="percent1">25.0%</span>)</span>
-                    </div>
-                    <div class="donut-legend-item">
-                        <span class="legend-color" style="background: var(--orange);"></span>
-                        <span>👍≥60%: <strong class="value2">18</strong>個 (<span class="percent2">75.0%</span>)</span>
+                    <!-- 第二個圖表：量產模具生產成功率區間分析 -->
+                    <div class="chart-container">
+                        <h3 style="color: var(--primary-red); text-align: center; margin-bottom: var(--spacing-md);" data-translate="success_rate_analysis">量產模具生產成功率區間分析</h3>
+                        <div class="donut-chart-container">
+                            <div class="donut-chart">
+                                <svg viewBox="0 0 200 200" class="donut-svg">
+                                    <!-- 背景圓環 -->
+                                    <circle cx="100" cy="100" r="70" fill="none" stroke="#f0f0f0" stroke-width="30"/>
+                                    <!-- Period 1 數據：25% 和 75% -->
+                                    <g class="period1-data">
+                                        <!-- ≤60%: 25% = 90度 -->
+                                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary-red)" stroke-width="15"
+                                                stroke-dasharray="109.96 329.87" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                                        <!-- ≥60%: 75% = 270度 -->
+                                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--orange)" stroke-width="15"
+                                                stroke-dasharray="329.87 109.96" stroke-dashoffset="-109.96" transform="rotate(-90 100 100)"/>
+                                    </g>
+                                    <!-- Period 2 數據：14.7% 和 85.3% -->
+                                    <g class="period2-data" style="display: none;">
+                                        <!-- ≤60%: 14.7% = 52.92度 -->
+                                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary-red)" stroke-width="15"
+                                                stroke-dasharray="64.75 375.08" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                                        <!-- ≥60%: 85.3% = 307.08度 -->
+                                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--orange)" stroke-width="15"
+                                                stroke-dasharray="375.08 64.75" stroke-dashoffset="-64.75" transform="rotate(-90 100 100)"/>
+                                    </g>
+                                    <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" class="donut-center-text">
+                                        <tspan x="100" dy="-10" class="donut-period">24/05-24/11</tspan>
+                                        <tspan x="100" dy="25" class="donut-total">總計: 24個</tspan>
+                                    </text>
+                                </svg>
+                                <div class="donut-legend">
+                                    <div class="donut-legend-item">
+                                        <span class="legend-color" style="background: var(--primary-red); width: 20px; height: 12px; border-radius: 2px;"></span>
+                                        <span>👎≤60%: <strong class="value1">6</strong>個 (<span class="percent1">25.0%</span>)</span>
+                                    </div>
+                                    <div class="donut-legend-item">
+                                        <span class="legend-color" style="background: var(--orange); width: 20px; height: 12px; border-radius: 2px;"></span>
+                                        <span>👍≥60%: <strong class="value2">18</strong>個 (<span class="percent2">75.0%</span>)</span>
+                                    </div>
+                                </div>
+                                <div class="period-toggle">
+                                    <button class="toggle-btn active" onclick="togglePeriod(1)" id="period-btn-1">24/05-24/11</button>
+                                    <button class="toggle-btn" onclick="togglePeriod(2)" id="period-btn-2">24/12-25/05</button>
+                                </div>
+                            </div>
+                            <div class="chart-insight" style="margin-top: var(--spacing-md);">
+                                <p data-translate="quality_insight">🎯 高成功率(≥60%)模具比例從75.0%提升至85.3%，品質持續優化</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="period-toggle">
-                    <button class="toggle-btn active" onclick="togglePeriod(1)" id="period-btn-1">24/05-24/11</button>
-                    <button class="toggle-btn" onclick="togglePeriod(2)" id="period-btn-2">24/12-25/05</button>
+                <div class="transformation-notice">
+                    <p data-translate="business_transformation">~營業佔比正穩定轉型中~</p>
                 </div>
-            </div>
-            <div class="chart-insight" style="margin-top: var(--spacing-md);">
-                <p data-translate="quality_insight">🎯 高成功率(≥60%)模具比例從75.0%提升至85.3%，品質持續優化</p>
             </div>
         </div>
-    </div>
     </section>
 
     <!-- 結語 -->
@@ -1865,7 +1948,7 @@
     </div>
     
     <div class="slide-counter">
-        <span id="currentSlideNum">1</span> / <span id="totalSlides">9</span>
+        <span id="currentSlideNum">1</span> / <span id="totalSlides">10</span>
     </div>
 
     <script>
@@ -1940,6 +2023,11 @@
         // 初始化
         showSlide(0);
         showCarouselSlide(0);
+        
+        // 初始化圓環圖
+        setTimeout(() => {
+            togglePeriod(1);
+        }, 100);
 
         // 圓環圖時期切換 - 修正版
         function togglePeriod(period) {
@@ -1947,8 +2035,8 @@
             const period1Data = document.querySelector('.period1-data');
             const period2Data = document.querySelector('.period2-data');
             const centerText = document.querySelector('.donut-center-text');
-            const periodText = centerText.querySelector('.donut-period');
-            const totalText = centerText.querySelector('.donut-total');
+            const periodText = centerText ? centerText.querySelector('.donut-period') : null;
+            const totalText = centerText ? centerText.querySelector('.donut-total') : null;
             const value1 = document.querySelector('.value1');
             const value2 = document.querySelector('.value2');
             const percent1 = document.querySelector('.percent1');
@@ -1956,37 +2044,37 @@
             const periodBtn1 = document.getElementById('period-btn-1');
             const periodBtn2 = document.getElementById('period-btn-2');
             
+            if (!periodText || !totalText || !value1 || !value2 || !percent1 || !percent2) {
+                return; // 如果圓環圖元素不存在，直接返回
+            }
+            
             btns.forEach(btn => btn.classList.remove('active'));
-            btns[period - 1].classList.add('active');
+            if (btns[period - 1]) btns[period - 1].classList.add('active');
             
             if (period === 1) {
                 // Period 1: 24/05-24/11 (總計24個)
-                period1Data.style.display = 'block';
-                period2Data.style.display = 'none';
+                if (period1Data) period1Data.style.display = 'block';
+                if (period2Data) period2Data.style.display = 'none';
                 periodText.textContent = '24/05-24/11';
                 totalText.textContent = currentLanguage === 'zh' ? '總計: 24個' : '合計: 24個';
                 value1.textContent = '6';  // ≤60%: 6個
                 value2.textContent = '18'; // ≥60%: 18個
                 percent1.textContent = '25.0%';
                 percent2.textContent = '75.0%';
-                legendColor1.style.background = 'var(--primary-red)';
-                legendColor2.style.background = 'var(--secondary-red)';
-                periodBtn1.classList.add('active');
-                periodBtn2.classList.remove('active');
+                if (periodBtn1) periodBtn1.classList.add('active');
+                if (periodBtn2) periodBtn2.classList.remove('active');
             } else {
                 // Period 2: 24/12-25/05 (總計34個)
-                period1Data.style.display = 'none';
-                period2Data.style.display = 'block';
+                if (period1Data) period1Data.style.display = 'none';
+                if (period2Data) period2Data.style.display = 'block';
                 periodText.textContent = '24/12-25/05';
                 totalText.textContent = currentLanguage === 'zh' ? '總計: 34個' : '合計: 34個';
                 value1.textContent = '5';  // ≤60%: 5個
                 value2.textContent = '29'; // ≥60%: 29個
                 percent1.textContent = '14.7%';
                 percent2.textContent = '85.3%';
-                legendColor1.style.background = 'var(--orange)';
-                legendColor2.style.background = 'var(--light-orange)';
-                periodBtn1.classList.remove('active');
-                periodBtn2.classList.add('active');
+                if (periodBtn1) periodBtn1.classList.remove('active');
+                if (periodBtn2) periodBtn2.classList.add('active');
             }
         }
 
@@ -2148,12 +2236,33 @@
                 reverse_engineering_results: "模具生產實績",
                 trial_count_stats: "正式量產前的試模次數統計",
                 trial_insight: "📊 試模效率大幅提升：一次試模成功率從36.84%提升至59.38%",
+                
+                // 模具生產成功率分析
+                success_rate_analysis_page: "模具生產成功率分析",
                 success_rate_comparison: "量產模具生產成功率比較",
                 success_rate_analysis: "量產模具生產成功率區間分析",
                 quality_insight: "🎯 高成功率(≥60%)模具比例從75.0%提升至85.3%，品質持續優化",
+                comparison_insight: "📊 優於舊廠商比例從20.8%大幅提升至47.1%，競爭優勢明顯增強",
                 inferior_to_old_vendor: "遜於舊廠商",
                 superior_to_old_vendor: "優於舊廠商",
-                
+                guangfeng_project_stats: "廣豐模具項目進度統計",
+                total_contracted: "發包總數",
+                in_production: "未加工完成模具",
+                pending_trial: "未試模完成",
+                trial_completed: "試模完成",
+                status_pending: "待處理項目",
+                status_completed: "已完成項目",
+                guangfeng_insight: "📊 廣豐模具項目整體進度：已完成70項 (59.3%)，進行中48項 (40.7%)",
+                guangfeng_project_stats: "廣豐模具項目進度統計",
+                total_contracted: "發包總數",
+                in_production: "未製完模具",
+                pending_trial: "未試模完成",
+                trial_completed: "試模完成",
+                material_adjusted: "本清改<br>(已發料調)",
+                erp_success: "ERP成功<br>(成功30件)",
+                status_pending: "待處理項目",
+                status_completed: "已完成項目",
+                guangfeng_insight: "📊 廣豐模具項目整體進度：已完成80項 (67.8%)，進行中38項 (32.2%)",
                 
                 // 結語
                 development_vision: "威拓的發展願景",
@@ -2318,11 +2427,33 @@
                 reverse_engineering_results: "金型生産実績",
                 trial_count_stats: "正式量産前の試作回数統計",
                 trial_insight: "📊 試作効率が大幅向上：1回試作成功率が36.84%から59.38%に向上",
+                
+                // 模具生產成功率分析
+                success_rate_analysis_page: "金型生産成功率分析",
                 success_rate_comparison: "量産金型生産成功率比較",
                 success_rate_analysis: "量産金型生産成功率区間分析",
                 quality_insight: "🎯 高成功率(≥60%)金型の比率が75.0%から85.3%に向上、品質継続最適化",
+                comparison_insight: "📊 従来メーカーを上回る比率が20.8%から47.1%に大幅向上、競争優位性が明確に強化",
                 inferior_to_old_vendor: "従来メーカーに劣る",
                 superior_to_old_vendor: "従来メーカーに優る",
+                guangfeng_project_stats: "広豊金型プロジェクト進捗統計",
+                total_contracted: "発注総数",
+                in_production: "未加工完成金型",
+                pending_trial: "未試作完成",
+                trial_completed: "試作完成",
+                status_pending: "処理待ち項目",
+                status_completed: "完成済み項目",
+                guangfeng_insight: "📊 広豊金型プロジェクト全体進捗：完成済70項目 (59.3%)、進行中48項目 (40.7%)",
+                guangfeng_project_stats: "広豊金型プロジェクト進捗統計",
+                total_contracted: "発注総数",
+                in_production: "未完成金型",
+                pending_trial: "未試作完成",
+                trial_completed: "試作完成",
+                material_adjusted: "本清改<br>(材料調整済)",
+                erp_success: "ERP成功<br>(成功30件)",
+                status_pending: "処理待ち項目",
+                status_completed: "完成済み項目",
+                guangfeng_insight: "📊 広豊金型プロジェクト全体進捗：完成済80項目 (67.8%)、進行中38項目 (32.2%)",
                 
                 // 結語
                 development_vision: "ウィントップの発展ビジョン",
@@ -2360,7 +2491,7 @@
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
+                    element.innerHTML = translations[lang][key];
                 }
             });
         }
